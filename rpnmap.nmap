@@ -1,0 +1,631 @@
+# Nmap 7.80 scan initiated Sat May 30 00:19:17 2020 as: nmap -A -T5 -sV -script vuln -oN rpnmap.nmap -p- localhost
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000054s latency).
+Not shown: 65505 closed ports
+PORT      STATE SERVICE     VERSION
+22/tcp    open  ssh         OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+25/tcp    open  smtp        Postfix smtpd
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| smtp-vuln-cve2010-4344: 
+|_  The SMTP server is not Exim: NOT VULNERABLE
+| ssl-dh-params: 
+|   VULNERABLE:
+|   Anonymous Diffie-Hellman Key Exchange MitM Vulnerability
+|     State: VULNERABLE
+|       Transport Layer Security (TLS) services that use anonymous
+|       Diffie-Hellman key exchange only provide protection against passive
+|       eavesdropping, and are vulnerable to active man-in-the-middle attacks
+|       which could completely compromise the confidentiality and integrity
+|       of any data exchanged over the resulting session.
+|     Check results:
+|       ANONYMOUS DH GROUP 1
+|             Cipher Suite: TLS_DH_anon_WITH_AES_256_GCM_SHA384
+|             Modulus Type: Safe prime
+|             Modulus Source: Unknown/Custom-generated
+|             Modulus Length: 2048
+|             Generator Length: 8
+|             Public Key Length: 2048
+|     References:
+|_      https://www.ietf.org/rfc/rfc2246.txt
+|_sslv2-drown: 
+631/tcp   open  ipp         CUPS 2.3
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+| http-enum: 
+|   /admin.php: Possible admin folder
+|   /admin/: Possible admin folder
+|   /admin/admin/: Possible admin folder
+|   /administrator/: Possible admin folder
+|   /adminarea/: Possible admin folder
+|   /adminLogin/: Possible admin folder
+|   /admin_area/: Possible admin folder
+|   /administratorlogin/: Possible admin folder
+|   /admin/account.php: Possible admin folder
+|   /admin/index.php: Possible admin folder
+|   /admin/login.php: Possible admin folder (401 Unauthorized)
+|   /admin/admin.php: Possible admin folder
+|   /admin_area/admin.php: Possible admin folder
+|   /admin_area/login.php: Possible admin folder
+|   /admin/index.html: Possible admin folder
+|   /admin/login.html: Possible admin folder (401 Unauthorized)
+|   /admin/admin.html: Possible admin folder
+|   /admin_area/index.php: Possible admin folder
+|   /admin/home.php: Possible admin folder
+|   /admin_area/login.html: Possible admin folder
+|   /admin_area/index.html: Possible admin folder
+|   /admin/controlpanel.php: Possible admin folder
+|   /admincp/: Possible admin folder
+|   /admincp/index.asp: Possible admin folder
+|   /admincp/index.html: Possible admin folder
+|   /admincp/login.php: Possible admin folder
+|   /admin/account.html: Possible admin folder
+|   /adminpanel.html: Possible admin folder
+|   /admin/admin_login.html: Possible admin folder
+|   /admin_login.html: Possible admin folder
+|   /admin/cp.php: Possible admin folder
+|   /administrator/index.php: Possible admin folder
+|   /administrator/login.php: Possible admin folder
+|   /admin/admin_login.php: Possible admin folder
+|   /admin_login.php: Possible admin folder
+|   /administrator/account.php: Possible admin folder
+|   /administrator.php: Possible admin folder
+|   /admin_area/admin.html: Possible admin folder
+|   /admin/admin-login.php: Possible admin folder
+|   /admin-login.php: Possible admin folder
+|   /admin/home.html: Possible admin folder
+|   /admin/admin-login.html: Possible admin folder
+|   /admin-login.html: Possible admin folder
+|   /admincontrol.php: Possible admin folder
+|   /admin/adminLogin.html: Possible admin folder
+|   /adminLogin.html: Possible admin folder
+|   /adminarea/index.html: Possible admin folder
+|   /adminarea/admin.html: Possible admin folder
+|   /admin/controlpanel.html: Possible admin folder
+|   /admin.html: Possible admin folder
+|   /admin/cp.html: Possible admin folder
+|   /adminpanel.php: Possible admin folder
+|   /administrator/index.html: Possible admin folder
+|   /administrator/login.html: Possible admin folder
+|   /administrator/account.html: Possible admin folder
+|   /administrator.html: Possible admin folder
+|   /adminarea/login.html: Possible admin folder
+|   /admincontrol/login.html: Possible admin folder
+|   /admincontrol.html: Possible admin folder
+|   /adminLogin.php: Possible admin folder
+|   /admin/adminLogin.php: Possible admin folder
+|   /adminarea/index.php: Possible admin folder
+|   /adminarea/admin.php: Possible admin folder
+|   /adminarea/login.php: Possible admin folder
+|   /admincontrol/login.php: Possible admin folder
+|   /admin2.php: Possible admin folder
+|   /admin2/login.php: Possible admin folder
+|   /admin2/index.php: Possible admin folder
+|   /administratorlogin.php: Possible admin folder
+|   /admin/account.cfm: Possible admin folder
+|   /admin/index.cfm: Possible admin folder
+|   /admin/login.cfm: Possible admin folder (401 Unauthorized)
+|   /admin/admin.cfm: Possible admin folder
+|   /admin.cfm: Possible admin folder
+|   /admin/admin_login.cfm: Possible admin folder
+|   /admin_login.cfm: Possible admin folder
+|   /adminpanel.cfm: Possible admin folder
+|   /admin/controlpanel.cfm: Possible admin folder
+|   /admincontrol.cfm: Possible admin folder
+|   /admin/cp.cfm: Possible admin folder
+|   /admincp/index.cfm: Possible admin folder
+|   /admincp/login.cfm: Possible admin folder
+|   /admin_area/admin.cfm: Possible admin folder
+|   /admin_area/login.cfm: Possible admin folder
+|   /administrator/login.cfm: Possible admin folder
+|   /administratorlogin.cfm: Possible admin folder
+|   /administrator.cfm: Possible admin folder
+|   /administrator/account.cfm: Possible admin folder
+|   /adminLogin.cfm: Possible admin folder
+|   /admin2/index.cfm: Possible admin folder
+|   /admin_area/index.cfm: Possible admin folder
+|   /admin2/login.cfm: Possible admin folder
+|   /admincontrol/login.cfm: Possible admin folder
+|   /administrator/index.cfm: Possible admin folder
+|   /adminarea/login.cfm: Possible admin folder
+|   /adminarea/admin.cfm: Possible admin folder
+|   /adminarea/index.cfm: Possible admin folder
+|   /admin/adminLogin.cfm: Possible admin folder
+|   /admin-login.cfm: Possible admin folder
+|   /admin/admin-login.cfm: Possible admin folder
+|   /admin/home.cfm: Possible admin folder
+|   /admin/account.asp: Possible admin folder
+|   /admin/index.asp: Possible admin folder
+|   /admin/login.asp: Possible admin folder (401 Unauthorized)
+|   /admin/admin.asp: Possible admin folder
+|   /admin_area/admin.asp: Possible admin folder
+|   /admin_area/login.asp: Possible admin folder
+|   /admin_area/index.asp: Possible admin folder
+|   /admin/home.asp: Possible admin folder
+|   /admin/controlpanel.asp: Possible admin folder
+|   /admin.asp: Possible admin folder
+|   /admin/admin-login.asp: Possible admin folder
+|   /admin-login.asp: Possible admin folder
+|   /admin/cp.asp: Possible admin folder
+|   /administrator/account.asp: Possible admin folder
+|   /administrator.asp: Possible admin folder
+|   /administrator/login.asp: Possible admin folder
+|   /admincp/login.asp: Possible admin folder
+|   /admincontrol.asp: Possible admin folder
+|   /adminpanel.asp: Possible admin folder
+|   /admin/admin_login.asp: Possible admin folder
+|   /admin_login.asp: Possible admin folder
+|   /adminLogin.asp: Possible admin folder
+|   /admin/adminLogin.asp: Possible admin folder
+|   /adminarea/index.asp: Possible admin folder
+|   /adminarea/admin.asp: Possible admin folder
+|   /adminarea/login.asp: Possible admin folder
+|   /administrator/index.asp: Possible admin folder
+|   /admincontrol/login.asp: Possible admin folder
+|   /admin2.asp: Possible admin folder
+|   /admin2/login.asp: Possible admin folder
+|   /admin2/index.asp: Possible admin folder
+|   /administratorlogin.asp: Possible admin folder
+|   /admin/account.aspx: Possible admin folder
+|   /admin/index.aspx: Possible admin folder
+|   /admin/login.aspx: Possible admin folder (401 Unauthorized)
+|   /admin/admin.aspx: Possible admin folder
+|   /admin_area/admin.aspx: Possible admin folder
+|   /admin_area/login.aspx: Possible admin folder
+|   /admin_area/index.aspx: Possible admin folder
+|   /admin/home.aspx: Possible admin folder
+|   /admin/controlpanel.aspx: Possible admin folder
+|   /admin.aspx: Possible admin folder
+|   /admin/admin-login.aspx: Possible admin folder
+|   /admin-login.aspx: Possible admin folder
+|   /admin/cp.aspx: Possible admin folder
+|   /administrator/account.aspx: Possible admin folder
+|   /administrator.aspx: Possible admin folder
+|   /administrator/login.aspx: Possible admin folder
+|   /admincp/index.aspx: Possible admin folder
+|   /admincp/login.aspx: Possible admin folder
+|   /admincontrol.aspx: Possible admin folder
+|   /adminpanel.aspx: Possible admin folder
+|   /admin/admin_login.aspx: Possible admin folder
+|   /admin_login.aspx: Possible admin folder
+|   /adminLogin.aspx: Possible admin folder
+|   /admin/adminLogin.aspx: Possible admin folder
+|   /adminarea/index.aspx: Possible admin folder
+|   /adminarea/admin.aspx: Possible admin folder
+|   /adminarea/login.aspx: Possible admin folder
+|   /administrator/index.aspx: Possible admin folder
+|   /admincontrol/login.aspx: Possible admin folder
+|   /admin2.aspx: Possible admin folder
+|   /admin2/login.aspx: Possible admin folder
+|   /admin2/index.aspx: Possible admin folder
+|   /administratorlogin.aspx: Possible admin folder
+|   /admin/index.jsp: Possible admin folder
+|   /admin/login.jsp: Possible admin folder (401 Unauthorized)
+|   /admin/admin.jsp: Possible admin folder
+|   /admin_area/admin.jsp: Possible admin folder
+|   /admin_area/login.jsp: Possible admin folder
+|   /admin_area/index.jsp: Possible admin folder
+|   /admin/home.jsp: Possible admin folder
+|   /admin/controlpanel.jsp: Possible admin folder
+|   /admin.jsp: Possible admin folder
+|   /admin/admin-login.jsp: Possible admin folder
+|   /admin-login.jsp: Possible admin folder
+|   /admin/cp.jsp: Possible admin folder
+|   /administrator/account.jsp: Possible admin folder
+|   /administrator.jsp: Possible admin folder
+|   /administrator/login.jsp: Possible admin folder
+|   /admincp/index.jsp: Possible admin folder
+|   /admincp/login.jsp: Possible admin folder
+|   /admincontrol.jsp: Possible admin folder
+|   /admin/account.jsp: Possible admin folder
+|   /adminpanel.jsp: Possible admin folder
+|   /admin/admin_login.jsp: Possible admin folder
+|   /admin_login.jsp: Possible admin folder
+|   /adminLogin.jsp: Possible admin folder
+|   /admin/adminLogin.jsp: Possible admin folder
+|   /adminarea/index.jsp: Possible admin folder
+|   /adminarea/admin.jsp: Possible admin folder
+|   /adminarea/login.jsp: Possible admin folder
+|   /administrator/index.jsp: Possible admin folder
+|   /admincontrol/login.jsp: Possible admin folder
+|   /admin2.jsp: Possible admin folder
+|   /admin2/login.jsp: Possible admin folder
+|   /admin2/index.jsp: Possible admin folder
+|   /administratorlogin.jsp: Possible admin folder
+|   /admin1.php: Possible admin folder
+|   /administr8.asp: Possible admin folder
+|   /administr8.php: Possible admin folder
+|   /administr8.jsp: Possible admin folder
+|   /administr8.aspx: Possible admin folder
+|   /administr8.cfm: Possible admin folder
+|   /administr8/: Possible admin folder
+|   /administer/: Possible admin folder
+|   /administracao.php: Possible admin folder
+|   /administracao.asp: Possible admin folder
+|   /administracao.aspx: Possible admin folder
+|   /administracao.cfm: Possible admin folder
+|   /administracao.jsp: Possible admin folder
+|   /administracion.php: Possible admin folder
+|   /administracion.asp: Possible admin folder
+|   /administracion.aspx: Possible admin folder
+|   /administracion.jsp: Possible admin folder
+|   /administracion.cfm: Possible admin folder
+|   /administrators/: Possible admin folder
+|   /adminpro/: Possible admin folder
+|   /admins/: Possible admin folder
+|   /admins.cfm: Possible admin folder
+|   /admins.php: Possible admin folder
+|   /admins.jsp: Possible admin folder
+|   /admins.asp: Possible admin folder
+|   /admins.aspx: Possible admin folder
+|   /administracion-sistema/: Possible admin folder
+|   /admin108/: Possible admin folder
+|   /admin_cp.asp: Possible admin folder
+|   /admin/backup/: Possible backup
+|   /admin/download/backup.sql: Possible database backup
+|   /robots.txt: Robots file
+|   /admin/upload.php: Admin File Upload
+|   /admin/CiscoAdmin.jhtml: Cisco Collaboration Server
+|   /admin-console/: JBoss Console
+|   /admin4.nsf: Lotus Domino
+|   /admin5.nsf: Lotus Domino
+|   /admin.nsf: Lotus Domino
+|   /administrator/wp-login.php: Wordpress login page.
+|   /admin/libraries/ajaxfilemanager/ajaxfilemanager.php: Log1 CMS
+|   /admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html: OpenCart/FCKeditor File upload
+|   /admin/includes/tiny_mce/plugins/tinybrowser/upload.php: CompactCMS or B-Hind CMS/FCKeditor File upload
+|   /admin/includes/FCKeditor/editor/filemanager/upload/test.html: ASP Simple Blog / FCKeditor File Upload
+|   /admin/jscript/upload.php: Lizard Cart/Remote File upload
+|   /admin/jscript/upload.html: Lizard Cart/Remote File upload
+|   /admin/jscript/upload.pl: Lizard Cart/Remote File upload
+|   /admin/jscript/upload.asp: Lizard Cart/Remote File upload
+|   /admin/environment.xml: Moodle files
+|   /classes/: Potentially interesting folder
+|   /es/: Potentially interesting folder
+|   /help/: Potentially interesting folder
+|_  /printers/: Potentially interesting folder
+|_http-server-header: CUPS/2.3 IPP/2.1
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+1716/tcp  open  xmsg?
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+3551/tcp  open  apcupsd     apcupsd
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+5432/tcp  open  postgresql  PostgreSQL DB 9.6.0 or later
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   SMBProgNeg: 
+|     SFATAL
+|     VFATAL
+|     C0A000
+|     Munsupported frontend protocol 65363.19778: server supports 2.0 to 3.0
+|     Fpostmaster.c
+|     L2054
+|_    RProcessStartupPacket
+|_sslv2-drown: 
+5939/tcp  open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+6463/tcp  open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, Kerberos, LDAPBindReq, LDAPSearchReq, LPDString, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie, X11Probe: 
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|   FourOhFourRequest, HTTPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Content-Length: 32
+|     Content-Type: application/json
+|     Date: Fri, 29 May 2020 22:19:41 GMT
+|     Connection: close
+|     {"code":0,"message":"Not Found"}
+|   GetRequest: 
+|     HTTP/1.1 404 Not Found
+|     Content-Length: 32
+|     Content-Type: application/json
+|     Date: Fri, 29 May 2020 22:19:40 GMT
+|     Connection: close
+|_    {"code":0,"message":"Not Found"}
+6942/tcp  open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NULL, RPCCheck, RTSPRequest, SSLSessionReq, TLSSessionReq, TerminalServerCookie: 
+|     0/home/bq666/.config/JetBrains/IntelliJIdea2020.1
+|_    //home/bq666/.cache/JetBrains/IntelliJIdea2020.1
+6943/tcp  open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NULL, RPCCheck, RTSPRequest, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie: 
+|     )/home/bq666/.config/JetBrains/Rider2020.1
+|_    (/home/bq666/.cache/JetBrains/Rider2020.1
+6944/tcp  open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NULL, RPCCheck, RTSPRequest, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie: 
+|     +/home/bq666/.config/JetBrains/PyCharm2020.1
+|_    */home/bq666/.cache/JetBrains/PyCharm2020.1
+17086/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+34427/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+36379/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+36529/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, LDAPSearchReq, LPDString, NULL, RPCCheck, RTSPRequest, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie, X11Probe: 
+|_    <?xml version="1.0" encoding="utf-8"?><stream><packet><empty/></packet>
+36752/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+37677/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+38293/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+38337/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+38363/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+38547/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+41943/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, LDAPSearchReq, LPDString, NULL, RPCCheck, RTSPRequest, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie, X11Probe: 
+|_    <?xml version="1.0" encoding="utf-8"?><stream><packet><empty/></packet>
+42391/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+42748/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+44915/tcp open  unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+46054/tcp open  java-rmi    Java RMI
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+61209/tcp open  http        BaseHTTPServer 0.6 (Python 3.8.2)
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-server-header: BaseHTTP/0.6 Python/3.8.2
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+63342/tcp open  ssl/unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.1 404 Not Found
+|     content-type: text/html
+|     content-length: 153
+|     server: IntelliJ IDEA 2020.1.2
+|     date: Fri, 29 May 2020 22:19:57 GMT
+|     X-Frame-Options: SameOrigin
+|     X-Content-Type-Options: nosniff
+|     x-xss-protection: 1; mode=block
+|     accept-ranges: bytes
+|_    <!doctype html><title>404 Not Found</title><h1 style="text-align: center">404 Not Found</h1><hr/><p style="text-align: center">IntelliJ IDEA 2020.1.2</p>
+|_sslv2-drown: 
+63343/tcp open  ssl/unknown
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_sslv2-drown: 
+63344/tcp open  http        PyCharm 2020.1.1
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-vuln-cve2014-3704: ERROR: Script execution failed (use -d to debug)
+8 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5432-TCP:V=7.80%I=7%D=5/30%Time=5ED18A77%P=x86_64-pc-linux-gnu%r(SM
+SF:BProgNeg,8C,"E\0\0\0\x8bSFATAL\0VFATAL\0C0A000\0Munsupported\x20fronten
+SF:d\x20protocol\x2065363\.19778:\x20server\x20supports\x202\.0\x20to\x203
+SF:\.0\0Fpostmaster\.c\0L2054\0RProcessStartupPacket\0\0");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6463-TCP:V=7.80%I=7%D=5/30%Time=5ED18A7C%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,A6,"HTTP/1\.1\x20404\x20Not\x20Found\r\nContent-Length:\x2032\
+SF:r\nContent-Type:\x20application/json\r\nDate:\x20Fri,\x2029\x20May\x202
+SF:020\x2022:19:40\x20GMT\r\nConnection:\x20close\r\n\r\n{\"code\":0,\"mes
+SF:sage\":\"Not\x20Found\"}")%r(HTTPOptions,A6,"HTTP/1\.1\x20404\x20Not\x2
+SF:0Found\r\nContent-Length:\x2032\r\nContent-Type:\x20application/json\r\
+SF:nDate:\x20Fri,\x2029\x20May\x202020\x2022:19:41\x20GMT\r\nConnection:\x
+SF:20close\r\n\r\n{\"code\":0,\"message\":\"Not\x20Found\"}")%r(RTSPReques
+SF:t,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\
+SF:n")%r(RPCCheck,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x2
+SF:0close\r\n\r\n")%r(DNSVersionBindReqTCP,2F,"HTTP/1\.1\x20400\x20Bad\x20
+SF:Request\r\nConnection:\x20close\r\n\r\n")%r(DNSStatusRequestTCP,2F,"HTT
+SF:P/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n")%r(Hel
+SF:p,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\
+SF:n")%r(SSLSessionReq,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnectio
+SF:n:\x20close\r\n\r\n")%r(TerminalServerCookie,2F,"HTTP/1\.1\x20400\x20Ba
+SF:d\x20Request\r\nConnection:\x20close\r\n\r\n")%r(TLSSessionReq,2F,"HTTP
+SF:/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n")%r(Kerb
+SF:eros,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n
+SF:\r\n")%r(SMBProgNeg,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnectio
+SF:n:\x20close\r\n\r\n")%r(X11Probe,2F,"HTTP/1\.1\x20400\x20Bad\x20Request
+SF:\r\nConnection:\x20close\r\n\r\n")%r(FourOhFourRequest,A6,"HTTP/1\.1\x2
+SF:0404\x20Not\x20Found\r\nContent-Length:\x2032\r\nContent-Type:\x20appli
+SF:cation/json\r\nDate:\x20Fri,\x2029\x20May\x202020\x2022:19:41\x20GMT\r\
+SF:nConnection:\x20close\r\n\r\n{\"code\":0,\"message\":\"Not\x20Found\"}"
+SF:)%r(LPDString,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20
+SF:close\r\n\r\n")%r(LDAPSearchReq,2F,"HTTP/1\.1\x20400\x20Bad\x20Request\
+SF:r\nConnection:\x20close\r\n\r\n")%r(LDAPBindReq,2F,"HTTP/1\.1\x20400\x2
+SF:0Bad\x20Request\r\nConnection:\x20close\r\n\r\n")%r(SIPOptions,2F,"HTTP
+SF:/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20close\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6942-TCP:V=7.80%I=7%D=5/30%Time=5ED18A77%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,68,"\x000/home/bq666/\.config/JetBrains/IntelliJIdea2020\.1\0//home/
+SF:bq666/\.cache/JetBrains/IntelliJIdea2020\.1\0\x03---")%r(GenericLines,6
+SF:8,"\x000/home/bq666/\.config/JetBrains/IntelliJIdea2020\.1\0//home/bq66
+SF:6/\.cache/JetBrains/IntelliJIdea2020\.1\0\x03---")%r(GetRequest,68,"\x0
+SF:00/home/bq666/\.config/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.ca
+SF:che/JetBrains/IntelliJIdea2020\.1\0\x03---")%r(HTTPOptions,68,"\x000/ho
+SF:me/bq666/\.config/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/J
+SF:etBrains/IntelliJIdea2020\.1\0\x03---")%r(RTSPRequest,68,"\x000/home/bq
+SF:666/\.config/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBra
+SF:ins/IntelliJIdea2020\.1\0\x03---")%r(RPCCheck,68,"\x000/home/bq666/\.co
+SF:nfig/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/Inte
+SF:lliJIdea2020\.1\0\x03---")%r(DNSVersionBindReqTCP,68,"\x000/home/bq666/
+SF:\.config/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/
+SF:IntelliJIdea2020\.1\0\x03---")%r(DNSStatusRequestTCP,68,"\x000/home/bq6
+SF:66/\.config/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrai
+SF:ns/IntelliJIdea2020\.1\0\x03---")%r(Help,68,"\x000/home/bq666/\.config/
+SF:JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/IntelliJI
+SF:dea2020\.1\0\x03---")%r(SSLSessionReq,68,"\x000/home/bq666/\.config/Jet
+SF:Brains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/IntelliJIdea
+SF:2020\.1\0\x03---")%r(TerminalServerCookie,68,"\x000/home/bq666/\.config
+SF:/JetBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/IntelliJ
+SF:Idea2020\.1\0\x03---")%r(TLSSessionReq,68,"\x000/home/bq666/\.config/Je
+SF:tBrains/IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/IntelliJIde
+SF:a2020\.1\0\x03---")%r(Kerberos,68,"\x000/home/bq666/\.config/JetBrains/
+SF:IntelliJIdea2020\.1\0//home/bq666/\.cache/JetBrains/IntelliJIdea2020\.1
+SF:\0\x03---");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6943-TCP:V=7.80%I=7%D=5/30%Time=5ED18A77%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,5A,"\0\)/home/bq666/\.config/JetBrains/Rider2020\.1\0\(/home/bq666/\
+SF:.cache/JetBrains/Rider2020\.1\0\x03---")%r(GenericLines,5A,"\0\)/home/b
+SF:q666/\.config/JetBrains/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/R
+SF:ider2020\.1\0\x03---")%r(GetRequest,5A,"\0\)/home/bq666/\.config/JetBra
+SF:ins/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/Rider2020\.1\0\x03---
+SF:")%r(HTTPOptions,5A,"\0\)/home/bq666/\.config/JetBrains/Rider2020\.1\0\
+SF:(/home/bq666/\.cache/JetBrains/Rider2020\.1\0\x03---")%r(RTSPRequest,5A
+SF:,"\0\)/home/bq666/\.config/JetBrains/Rider2020\.1\0\(/home/bq666/\.cach
+SF:e/JetBrains/Rider2020\.1\0\x03---")%r(RPCCheck,5A,"\0\)/home/bq666/\.co
+SF:nfig/JetBrains/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/Rider2020\
+SF:.1\0\x03---")%r(DNSVersionBindReqTCP,5A,"\0\)/home/bq666/\.config/JetBr
+SF:ains/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/Rider2020\.1\0\x03--
+SF:-")%r(DNSStatusRequestTCP,5A,"\0\)/home/bq666/\.config/JetBrains/Rider2
+SF:020\.1\0\(/home/bq666/\.cache/JetBrains/Rider2020\.1\0\x03---")%r(Help,
+SF:5A,"\0\)/home/bq666/\.config/JetBrains/Rider2020\.1\0\(/home/bq666/\.ca
+SF:che/JetBrains/Rider2020\.1\0\x03---")%r(SSLSessionReq,5A,"\0\)/home/bq6
+SF:66/\.config/JetBrains/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/Rid
+SF:er2020\.1\0\x03---")%r(TerminalServerCookie,5A,"\0\)/home/bq666/\.confi
+SF:g/JetBrains/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/Rider2020\.1\
+SF:0\x03---")%r(TLSSessionReq,5A,"\0\)/home/bq666/\.config/JetBrains/Rider
+SF:2020\.1\0\(/home/bq666/\.cache/JetBrains/Rider2020\.1\0\x03---")%r(Kerb
+SF:eros,5A,"\0\)/home/bq666/\.config/JetBrains/Rider2020\.1\0\(/home/bq666
+SF:/\.cache/JetBrains/Rider2020\.1\0\x03---")%r(SMBProgNeg,5A,"\0\)/home/b
+SF:q666/\.config/JetBrains/Rider2020\.1\0\(/home/bq666/\.cache/JetBrains/R
+SF:ider2020\.1\0\x03---");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port6944-TCP:V=7.80%I=7%D=5/30%Time=5ED18A77%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,5E,"\0\+/home/bq666/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666
+SF:/\.cache/JetBrains/PyCharm2020\.1\0\x03---")%r(GenericLines,5E,"\0\+/ho
+SF:me/bq666/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.cache/JetBr
+SF:ains/PyCharm2020\.1\0\x03---")%r(GetRequest,5E,"\0\+/home/bq666/\.confi
+SF:g/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.cache/JetBrains/PyCharm2020
+SF:\.1\0\x03---")%r(HTTPOptions,5E,"\0\+/home/bq666/\.config/JetBrains/PyC
+SF:harm2020\.1\0\*/home/bq666/\.cache/JetBrains/PyCharm2020\.1\0\x03---")%
+SF:r(RTSPRequest,5E,"\0\+/home/bq666/\.config/JetBrains/PyCharm2020\.1\0\*
+SF:/home/bq666/\.cache/JetBrains/PyCharm2020\.1\0\x03---")%r(RPCCheck,5E,"
+SF:\0\+/home/bq666/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.cach
+SF:e/JetBrains/PyCharm2020\.1\0\x03---")%r(DNSVersionBindReqTCP,5E,"\0\+/h
+SF:ome/bq666/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.cache/JetB
+SF:rains/PyCharm2020\.1\0\x03---")%r(DNSStatusRequestTCP,5E,"\0\+/home/bq6
+SF:66/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.cache/JetBrains/P
+SF:yCharm2020\.1\0\x03---")%r(Help,5E,"\0\+/home/bq666/\.config/JetBrains/
+SF:PyCharm2020\.1\0\*/home/bq666/\.cache/JetBrains/PyCharm2020\.1\0\x03---
+SF:")%r(SSLSessionReq,5E,"\0\+/home/bq666/\.config/JetBrains/PyCharm2020\.
+SF:1\0\*/home/bq666/\.cache/JetBrains/PyCharm2020\.1\0\x03---")%r(Terminal
+SF:ServerCookie,5E,"\0\+/home/bq666/\.config/JetBrains/PyCharm2020\.1\0\*/
+SF:home/bq666/\.cache/JetBrains/PyCharm2020\.1\0\x03---")%r(TLSSessionReq,
+SF:5E,"\0\+/home/bq666/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.
+SF:cache/JetBrains/PyCharm2020\.1\0\x03---")%r(Kerberos,5E,"\0\+/home/bq66
+SF:6/\.config/JetBrains/PyCharm2020\.1\0\*/home/bq666/\.cache/JetBrains/Py
+SF:Charm2020\.1\0\x03---")%r(SMBProgNeg,5E,"\0\+/home/bq666/\.config/JetBr
+SF:ains/PyCharm2020\.1\0\*/home/bq666/\.cache/JetBrains/PyCharm2020\.1\0\x
+SF:03---");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port36529-TCP:V=7.80%I=7%D=5/30%Time=5ED18A77%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?>
+SF:<stream><packet><empty/></packet>")%r(GenericLines,4A,"\xef\xbb\xbf<\?x
+SF:ml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/>
+SF:</packet>")%r(GetRequest,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20
+SF:encoding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(HTTPOptions,
+SF:4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><str
+SF:eam><packet><empty/></packet>")%r(RTSPRequest,4A,"\xef\xbb\xbf<\?xml\x2
+SF:0version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/></pac
+SF:ket>")%r(RPCCheck,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encodin
+SF:g=\"utf-8\"\?><stream><packet><empty/></packet>")%r(DNSVersionBindReqTC
+SF:P,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><s
+SF:tream><packet><empty/></packet>")%r(DNSStatusRequestTCP,4A,"\xef\xbb\xb
+SF:f<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><em
+SF:pty/></packet>")%r(Help,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20e
+SF:ncoding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(SSLSessionReq
+SF:,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><st
+SF:ream><packet><empty/></packet>")%r(TerminalServerCookie,4A,"\xef\xbb\xb
+SF:f<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><em
+SF:pty/></packet>")%r(TLSSessionReq,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\
+SF:.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(Kerb
+SF:eros,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?
+SF:><stream><packet><empty/></packet>")%r(SMBProgNeg,4A,"\xef\xbb\xbf<\?xm
+SF:l\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/><
+SF:/packet>")%r(X11Probe,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20enc
+SF:oding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(FourOhFourReque
+SF:st,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><
+SF:stream><packet><empty/></packet>")%r(LPDString,4A,"\xef\xbb\xbf<\?xml\x
+SF:20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/></pa
+SF:cket>")%r(LDAPSearchReq,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20e
+SF:ncoding=\"utf-8\"\?><stream><packet><empty/></packet>");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port41943-TCP:V=7.80%I=7%D=5/30%Time=5ED18A77%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?>
+SF:<stream><packet><empty/></packet>")%r(GenericLines,4A,"\xef\xbb\xbf<\?x
+SF:ml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/>
+SF:</packet>")%r(GetRequest,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20
+SF:encoding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(HTTPOptions,
+SF:4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><str
+SF:eam><packet><empty/></packet>")%r(RTSPRequest,4A,"\xef\xbb\xbf<\?xml\x2
+SF:0version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/></pac
+SF:ket>")%r(RPCCheck,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encodin
+SF:g=\"utf-8\"\?><stream><packet><empty/></packet>")%r(DNSVersionBindReqTC
+SF:P,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><s
+SF:tream><packet><empty/></packet>")%r(DNSStatusRequestTCP,4A,"\xef\xbb\xb
+SF:f<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><em
+SF:pty/></packet>")%r(Help,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20e
+SF:ncoding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(SSLSessionReq
+SF:,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><st
+SF:ream><packet><empty/></packet>")%r(TerminalServerCookie,4A,"\xef\xbb\xb
+SF:f<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><em
+SF:pty/></packet>")%r(TLSSessionReq,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\
+SF:.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(Kerb
+SF:eros,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?
+SF:><stream><packet><empty/></packet>")%r(SMBProgNeg,4A,"\xef\xbb\xbf<\?xm
+SF:l\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/><
+SF:/packet>")%r(X11Probe,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20enc
+SF:oding=\"utf-8\"\?><stream><packet><empty/></packet>")%r(FourOhFourReque
+SF:st,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20encoding=\"utf-8\"\?><
+SF:stream><packet><empty/></packet>")%r(LPDString,4A,"\xef\xbb\xbf<\?xml\x
+SF:20version=\"1\.0\"\x20encoding=\"utf-8\"\?><stream><packet><empty/></pa
+SF:cket>")%r(LDAPSearchReq,4A,"\xef\xbb\xbf<\?xml\x20version=\"1\.0\"\x20e
+SF:ncoding=\"utf-8\"\?><stream><packet><empty/></packet>");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port63342-TCP:V=7.80%T=SSL%I=7%D=5/30%Time=5ED18A8D%P=x86_64-pc-linux-g
+SF:nu%r(GetRequest,19B,"HTTP/1\.1\x20404\x20Not\x20Found\r\ncontent-type:\
+SF:x20text/html\r\ncontent-length:\x20153\r\nserver:\x20IntelliJ\x20IDEA\x
+SF:202020\.1\.2\r\ndate:\x20Fri,\x2029\x20May\x202020\x2022:19:57\x20GMT\r
+SF:\nX-Frame-Options:\x20SameOrigin\r\nX-Content-Type-Options:\x20nosniff\
+SF:r\nx-xss-protection:\x201;\x20mode=block\r\naccept-ranges:\x20bytes\r\n
+SF:\r\n<!doctype\x20html><title>404\x20Not\x20Found</title><h1\x20style=\"
+SF:text-align:\x20center\">404\x20Not\x20Found</h1><hr/><p\x20style=\"text
+SF:-align:\x20center\">IntelliJ\x20IDEA\x202020\.1\.2</p>")%r(HTTPOptions,
+SF:19B,"HTTP/1\.1\x20404\x20Not\x20Found\r\ncontent-type:\x20text/html\r\n
+SF:content-length:\x20153\r\nserver:\x20IntelliJ\x20IDEA\x202020\.1\.2\r\n
+SF:date:\x20Fri,\x2029\x20May\x202020\x2022:19:57\x20GMT\r\nX-Frame-Option
+SF:s:\x20SameOrigin\r\nX-Content-Type-Options:\x20nosniff\r\nx-xss-protect
+SF:ion:\x201;\x20mode=block\r\naccept-ranges:\x20bytes\r\n\r\n<!doctype\x2
+SF:0html><title>404\x20Not\x20Found</title><h1\x20style=\"text-align:\x20c
+SF:enter\">404\x20Not\x20Found</h1><hr/><p\x20style=\"text-align:\x20cente
+SF:r\">IntelliJ\x20IDEA\x202020\.1\.2</p>");
+Service Info: Host:  bq666-System-Product-Name.home; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat May 30 00:30:37 2020 -- 1 IP address (1 host up) scanned in 679.20 seconds
