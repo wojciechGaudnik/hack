@@ -1,0 +1,1 @@
+/home/bq666/VirtualBox VMs/SharedKali/wordlists/rockyou.txt
